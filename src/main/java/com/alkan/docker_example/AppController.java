@@ -32,4 +32,9 @@ public class AppController {
     public String test4() {
         return "Test4";
     }
+
+    @GetMapping("/test5")
+    public String test5() {
+        return "Test5";
+    }
 }

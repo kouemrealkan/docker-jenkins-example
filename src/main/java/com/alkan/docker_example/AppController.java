@@ -37,4 +37,9 @@ public class AppController {
     public String test5() {
         return "Test5";
     }
+
+    @GetMapping("/test6")
+    public String test6() {
+        return "Test6";
+    }
 }

@@ -18,7 +18,11 @@ public class TaskController {
     }
 
     @PostMapping
-    public void save(@RequestBody Task task) {
+    public void save(@RequestBody Task task) throws Exception {
+        var isExist = taskRepository.findByName(task.getName());
+        if (isExist.isPresent()) {
+            throw new Exception("Task is already exist");
+        }
         taskRepository.save(task);
     }
 }

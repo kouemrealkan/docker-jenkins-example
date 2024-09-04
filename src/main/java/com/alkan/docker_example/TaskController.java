@@ -1,0 +1,24 @@
+package com.alkan.docker_example;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("/tasks")
+@RequiredArgsConstructor
+public class TaskController {
+
+    private final TaskRepository taskRepository;
+
+    @GetMapping
+    public List<Task> getTasks() {
+        return taskRepository.findAll();
+    }
+
+    @PostMapping
+    public void save(@RequestBody Task task) {
+        taskRepository.save(task);
+    }
+}

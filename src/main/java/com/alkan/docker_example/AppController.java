@@ -22,4 +22,9 @@ public class AppController {
     public String test2() {
         return "Test2";
     }
+
+    @GetMapping("/test3")
+    public String test3() {
+        return "Test3";
+    }
 }

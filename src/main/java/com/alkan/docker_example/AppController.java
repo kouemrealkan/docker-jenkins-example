@@ -12,4 +12,9 @@ public class AppController {
     public String home() {
         return "Hello From Docker Demo App :)";
     }
+
+    @GetMapping("/test")
+    public String test() {
+        return "Test";
+    }
 }

@@ -27,4 +27,9 @@ public class AppController {
     public String test3() {
         return "Test3";
     }
+
+    @GetMapping("/test4")
+    public String test4() {
+        return "Test4";
+    }
 }

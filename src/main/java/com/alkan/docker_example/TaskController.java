@@ -41,4 +41,9 @@ public class TaskController {
         }
     }
 
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable String id) {
+        taskRepository.findById(id).ifPresent(taskRepository::delete);
+    }
+
 }

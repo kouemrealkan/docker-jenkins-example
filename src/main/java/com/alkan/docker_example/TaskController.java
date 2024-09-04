@@ -17,6 +17,11 @@ public class TaskController {
         return taskRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public Task getTask(@PathVariable String id) {
+        return taskRepository.findById(id).orElse(null);
+    }
+
     @PostMapping
     public void save(@RequestBody Task task) throws Exception {
         var isExist = taskRepository.findByName(task.getName());
@@ -25,4 +30,15 @@ public class TaskController {
         }
         taskRepository.save(task);
     }
+
+    @PutMapping("/{id}")
+    public void update(@PathVariable String id, @RequestBody Task updatedTask) throws Exception {
+        var task = taskRepository.findById(id).orElse(null);
+        if (task != null) {
+            task.setName(updatedTask.getName());
+            task.setDescription(updatedTask.getDescription());
+            taskRepository.save(task);
+        }
+    }
+
 }

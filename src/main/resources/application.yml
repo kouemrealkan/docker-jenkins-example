@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: docker-example
+  profiles:
+    active: dev  # Varsay?lan olarak 'dev' profilini kullan
